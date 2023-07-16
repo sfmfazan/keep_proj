@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Chivo+Mono&family=Fira+Sans+Condensed:wght@100&family=Itim&family=Jura&family=Lato:wght@300&family=Lobster&family=Maven+Pro&family=McLaren&family=Monoton&family=Montserrat&family=Montserrat+Alternates&family=Pacifico&family=Poller+One&family=Poppins:wght@300;400&family=Roboto+Condensed&family=Roboto+Slab:wght@500&family=Roboto:ital,wght@0,500;1,400&family=Rubik+Gemstones&family=Rubik+Spray+Paint&display=swap");
+
+Header {
+  background-color: #ffb72b;
+  margin: auto -16px;
+  padding: 16px 32px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+Header h1 {
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 200;
+  text-shadow: 1px 1px #000000, 2px 2px #111111, 3px 3px #222222,
+    4px 4px #333333, 5px 5px #444444, 6px 6px #555555, 7px 7px #666666,
+    8px 8px #777777, 9px 9px #888888, 10px 10px #999999, 11px 11px #aaaaaa,
+    12px 12px #bbbbbb, 13px 13px #cccccc, 14px 14px #dddddd, 15px 15px #eeeeee;
+}
