@@ -18,3 +18,38 @@ Header h1 {
     8px 8px #777777, 9px 9px #888888, 10px 10px #999999, 11px 11px #aaaaaa,
     12px 12px #bbbbbb, 13px 13px #cccccc, 14px 14px #dddddd, 15px 15px #eeeeee;
 }
+/* Animation for color change and rotation */
+@keyframes keepColorChange {
+  0% {
+    transform: rotate(0);
+    color: red;
+  }
+  20% {
+    color: rgb(0, 0, 0);
+  }
+  40% {
+    color: yellow;
+  }
+  60% {
+    color: green;
+  }
+  80% {
+    color: blue;
+  }
+  100% {
+    transform: rotate(360deg);
+    color: purple;
+  }
+}
+
+/* Applying animation to the Keep icon */
+header h1 > svg {
+  margin-right: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  animation: keepColorChange 5s linear infinite; /* Apply the color change and rotation animation */
+}
+
+header h1 > svg:hover {
+  transform: scale(1.1);
+}

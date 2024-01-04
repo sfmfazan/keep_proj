@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import Zoom from "@mui/material/Zoom";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 import "./CreateNote.css";
 
 const CreateNote = (props) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
   const [note, setNote] = useState({
     title: "",
     content: "",
+    category: "",
+    reminder: "",
+    remindMe: false,
   });
 
   const expand = () => {
@@ -17,22 +20,30 @@ const CreateNote = (props) => {
   };
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value, type, checked } = event.target;
+    const fieldValue = type === "checkbox" ? checked : value;
+
     setNote((prevNote) => {
       return {
         ...prevNote,
-        [name]: value,
+        [name]: fieldValue,
       };
     });
   };
-  console.log(note);
 
   const submitNote = (event) => {
     event.preventDefault();
+    if (note.remindMe && !note.reminder) {
+      alert("Please select a reminder date/time.");
+      return;
+    }
     props.addNote(note);
     setNote({
       title: "",
       content: "",
+      category: "",
+      reminder: "",
+      remindMe: false,
     });
     setIsExpanded(false);
   };
@@ -58,6 +69,33 @@ const CreateNote = (props) => {
           value={note.content}
         />
 
+        <select name="category" onChange={handleChange} value={note.category}>
+          <option value="">Select Category</option>
+          <option value="personal">Personal</option>
+          <option value="work">Work</option>
+          <option value="study">Study</option>
+        </select>
+
+        <input
+          type="datetime-local"
+          name="reminder"
+          onChange={handleChange}
+          value={note.reminder}
+          disabled={!note.remindMe}
+        />
+
+        {/* Bell icon and "Remind Me" text */}
+        <label>
+          <NotificationsIcon />
+          Remind Me:
+          <input
+            type="checkbox"
+            name="remindMe"
+            checked={note.remindMe}
+            onChange={handleChange}
+          />
+        </label>
+
         <Zoom in={isExpanded}>
           <Fab onClick={submitNote}>
             <AddIcon />
@@ -69,3 +107,5 @@ const CreateNote = (props) => {
 };
 
 export default CreateNote;
+
+

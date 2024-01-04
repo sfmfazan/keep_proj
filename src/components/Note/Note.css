@@ -47,3 +47,25 @@
     rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
     rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
+.note {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px;
+  position: relative;
+}
+
+/* Added style for the date */
+.date {
+  color: red;
+  font-style: italic;
+  margin-top: 5px;
+}
+.category {
+  color: red;
+  font-weight: bold;
+}
+
+.reminder {
+  color: blue;
+  font-size: 20px;
+}

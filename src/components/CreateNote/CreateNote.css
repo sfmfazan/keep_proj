@@ -17,6 +17,7 @@ form.create-note textarea {
   font-size: 1.2rem;
   font-family: inherit;
   resize: none;
+  
 }
 form.create-note button {
   position: absolute;
@@ -33,4 +34,52 @@ form.create-note button {
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   cursor: pointer;
   outline: none;
+}
+.create-note select {
+  color: black;
+  background-color:rgb(253,183,51);
+  border: none;
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 20px; /* Adding border-radius for an oval shape */
+}
+
+/* Style reminder text color */
+.create-note input[type="datetime-local"] {
+  color: rgb(14, 14, 204);
+  border-radius: 20px; /* Adding border-radius for an oval shape */
+
+}
+label {
+  display: flex;
+  align-items: center;
+  color: red; /* Change the color to red */
+}
+
+
+label > svg {
+  margin-right: 5px;
+  color: red; /* Change the color of the bell icon to red */
+  cursor: pointer; /* Add pointer cursor on hover */
+  transition: transform 0.2s ease-in-out; /* Smooth transition for transform animation */
+}
+
+@keyframes bellDance {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(15deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-15deg); }
+  100% { transform: rotate(0deg); }
+}
+
+label > svg:hover {
+  animation: bellDance 0.5s ease infinite; /* Apply the keyframe animation on hover */
+}
+
+/* Apply border-radius to make the dropdown oval */
+select[name="category"] {
+  border-radius: 20px;
+  padding: 8px;
+  outline: none;
+  margin-top: 8px;
 }
