@@ -3,6 +3,7 @@ import Zoom from "@mui/material/Zoom";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import bellSound from "../sounds/bell2.wav"; 
 import "./CreateNote.css";
 
 const CreateNote = (props) => {
@@ -29,6 +30,11 @@ const CreateNote = (props) => {
         [name]: fieldValue,
       };
     });
+  };
+
+  const playBellSound = () => {
+    const audio = new Audio(bellSound);
+    audio.play();
   };
 
   const submitNote = (event) => {
@@ -93,6 +99,7 @@ const CreateNote = (props) => {
             name="remindMe"
             checked={note.remindMe}
             onChange={handleChange}
+            onClick={playBellSound} // Play the bell sound on click
           />
         </label>
 
@@ -107,5 +114,3 @@ const CreateNote = (props) => {
 };
 
 export default CreateNote;
-
-
